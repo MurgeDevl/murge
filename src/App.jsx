@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import "./App.css";
 
 import beers from "./data/beers";
@@ -16,6 +16,8 @@ import MyDrinksPage from "./pages/MyDrinksPage";
 import SearchPage from "./pages/SearchPage";
 import SettingsPage from "./pages/SettingsPage";
 import AboutPage from "./pages/AboutPage";
+import SplashScreen from "./components/SplashScreen";
+import WelcomeScreen from "./components/WelcomeScreen";
 
 const categories = [
   { name: "Favoris", emoji: "⭐" },
@@ -64,6 +66,11 @@ const flattenGroups = (groups) =>
   );
 
 function App() {
+  const [showSplash, setShowSplash] = useState(true);
+  const [showWelcome, setShowWelcome] = useState(
+    () => localStorage.getItem("murge-onboarding-v1") !== "done",
+  );
+
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [settingsPage, setSettingsPage] = useState(null);
   const [isCartOpen, setIsCartOpen] = useState(false);
@@ -87,6 +94,19 @@ function App() {
   const [customDrinks, setCustomDrinks] = useState(() =>
     getSavedData("murge-custom-drinks", []),
   );
+
+  useEffect(() => {
+    const timer = window.setTimeout(() => {
+      setShowSplash(false);
+    }, 1050);
+
+    return () => window.clearTimeout(timer);
+  }, []);
+
+  const finishWelcome = () => {
+    localStorage.setItem("murge-onboarding-v1", "done");
+    setShowWelcome(false);
+  };
 
   const groupsByCategory = useMemo(() => {
     const result = {};
@@ -505,6 +525,14 @@ function App() {
   const isDrinkCategory = Boolean(
     groupsByCategory[selectedCategory],
   );
+
+  if (showSplash) {
+    return <SplashScreen />;
+  }
+
+  if (showWelcome) {
+    return <WelcomeScreen onStart={finishWelcome} />;
+  }
 
   return (
     <main className="app">

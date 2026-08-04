@@ -1408,3 +1408,213 @@ body {
   display: block;
   line-height: 1.35;
 }
+
+/* Ouverture Murge + guide d’installation */
+
+.murge-splash {
+  position: fixed;
+  z-index: 99999;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background: #171717;
+}
+
+.murge-splash-logo-wrap {
+  position: relative;
+  width: 148px;
+  height: 148px;
+  animation: murge-splash-appear 900ms ease both;
+}
+
+.murge-splash-logo {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 28%;
+  object-fit: cover;
+}
+
+.murge-splash-bubble {
+  position: absolute;
+  width: 9px;
+  height: 9px;
+  border: 1px solid rgb(255 255 255 / 70%);
+  border-radius: 50%;
+  background: #f2b134;
+  opacity: 0;
+}
+
+.murge-splash-bubble.bubble-one {
+  top: 20px;
+  right: 34px;
+  animation: murge-splash-bubble 700ms 180ms ease-out both;
+}
+
+.murge-splash-bubble.bubble-two {
+  top: 30px;
+  right: 20px;
+  width: 6px;
+  height: 6px;
+  animation: murge-splash-bubble 650ms 310ms ease-out both;
+}
+
+@keyframes murge-splash-appear {
+  0% {
+    opacity: 0;
+    transform: scale(0.88);
+  }
+
+  45% {
+    opacity: 1;
+    transform: scale(1.02);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes murge-splash-bubble {
+  0% {
+    opacity: 0;
+    transform: translateY(8px) scale(0.5);
+  }
+
+  25% {
+    opacity: 0.9;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(-26px) scale(1);
+  }
+}
+
+.murge-welcome {
+  width: min(100%, 480px);
+  min-height: 100dvh;
+  margin: 0 auto;
+  padding:
+    max(24px, env(safe-area-inset-top))
+    18px
+    max(28px, env(safe-area-inset-bottom));
+  display: grid;
+  place-items: center;
+}
+
+.murge-welcome-card {
+  width: 100%;
+  padding: 22px;
+  border: 1px solid #303030;
+  border-radius: 26px;
+  background:
+    radial-gradient(
+      circle at top right,
+      rgb(245 158 11 / 18%),
+      transparent 42%
+    ),
+    #202020;
+}
+
+.murge-welcome-logo {
+  display: block;
+  width: 76px;
+  height: 76px;
+  margin-bottom: 18px;
+  border-radius: 22px;
+}
+
+.murge-welcome-heading h1 {
+  margin: 0 0 10px;
+  font-size: 1.9rem;
+}
+
+.murge-welcome-heading p {
+  margin: 0;
+  color: #aaa;
+  line-height: 1.5;
+}
+
+.murge-install-guide {
+  display: grid;
+  gap: 10px;
+  margin-top: 22px;
+}
+
+.murge-install-guide h2 {
+  margin: 0 0 2px;
+  font-size: 1.05rem;
+}
+
+.murge-install-card {
+  padding: 14px;
+  border: 1px solid #343434;
+  border-radius: 16px;
+  background: #292929;
+}
+
+.murge-install-card strong {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.murge-install-card p {
+  margin: 0 0 7px;
+  color: #aaa;
+  font-size: 0.9rem;
+}
+
+.murge-install-card span {
+  color: #f2b134;
+  font-size: 0.91rem;
+  font-weight: 850;
+}
+
+.murge-welcome-start {
+  width: 100%;
+  min-height: 54px;
+  margin-top: 18px;
+  border: 0;
+  border-radius: 16px;
+  background: #f59e0b;
+  color: #171717;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.murge-welcome-card > small {
+  display: block;
+  margin-top: 11px;
+  color: #777;
+  font-size: 0.75rem;
+  text-align: center;
+}
+
+@media (max-height: 720px) {
+  .murge-welcome {
+    place-items: start center;
+  }
+
+  .murge-welcome-card {
+    margin-top: 8px;
+  }
+
+  .murge-welcome-logo {
+    width: 62px;
+    height: 62px;
+    margin-bottom: 12px;
+  }
+
+  .murge-welcome-heading h1 {
+    font-size: 1.65rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .murge-splash-logo-wrap,
+  .murge-splash-bubble {
+    animation: none;
+  }
+}

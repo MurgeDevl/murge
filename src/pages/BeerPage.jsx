@@ -24,13 +24,13 @@ function BeerPage({
       .map((beer, index) => ({
         beer,
         index,
-        hasFavorite: (beer.variants || []).some((variant) =>
+        isFavorite: beer.variants.some((variant) =>
           favorites.includes(variant.id),
         ),
       }))
       .sort((a, b) => {
-        if (a.hasFavorite !== b.hasFavorite) {
-          return a.hasFavorite ? -1 : 1;
+        if (a.isFavorite !== b.isFavorite) {
+          return a.isFavorite ? -1 : 1;
         }
 
         return a.index - b.index;
@@ -60,19 +60,11 @@ function BeerPage({
 
       <div className="brand-list">
         {visibleBeers.map((beer) => {
-          const variants = beer.variants || [];
-          const directAdd = beer.custom || variants.length === 1;
+          const directAdd = beer.custom || beer.variants.length === 1;
           const isOpen = openBeerId === beer.id;
-          const hasFavorite = variants.some((variant) =>
-            favorites.includes(variant.id),
-          );
 
           const addDirectly = () => {
-            const variant = variants[0];
-
-            if (!variant) {
-              return;
-            }
+            const variant = beer.variants[0];
 
             onAdd({
               id: variant.id,
@@ -114,21 +106,15 @@ function BeerPage({
                       )}
 
                       <strong>{beer.name}</strong>
-
-                      {hasFavorite && (
-                        <span
-                          className="favorite-brand-badge"
-                          title="Contient un favori"
-                        >
-                          ⭐
-                        </span>
-                      )}
                     </span>
                   </span>
 
                   <small>
-                    {variants.length} variante
-                    {variants.length > 1 ? "s" : ""}
+                    {directAdd
+                      ? "Ajouter directement"
+                      : beer.variants
+                          .map((variant) => variant.name)
+                          .join(" • ")}
                   </small>
                 </span>
 
@@ -139,7 +125,7 @@ function BeerPage({
 
               {isOpen && !directAdd && (
                 <div className="variant-list">
-                  {variants.map((variant) => {
+                  {beer.variants.map((variant) => {
                     const quantity = getQuantity(variant.id);
                     const isFavorite = favorites.includes(variant.id);
 
@@ -162,9 +148,7 @@ function BeerPage({
                               ? `Retirer ${drink.name} des favoris`
                               : `Ajouter ${drink.name} aux favoris`
                           }
-                          onClick={() =>
-                            onToggleFavorite(variant.id)
-                          }
+                          onClick={() => onToggleFavorite(variant.id)}
                         >
                           {isFavorite ? "★" : "☆"}
                         </button>
@@ -175,9 +159,7 @@ function BeerPage({
                           onClick={() => onAdd(drink)}
                         >
                           <span>{variant.name}</span>
-                          <span className="add-label">
-                            + Ajouter
-                          </span>
+                          <span className="add-label">+ Ajouter</span>
                         </button>
 
                         {quantity > 0 && (
