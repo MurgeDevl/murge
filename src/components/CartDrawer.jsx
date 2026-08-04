@@ -76,7 +76,7 @@ function CartDrawer({
 
                     <button
                       type="button"
-                      onClick={() => onAdd(item)}
+                      onClick={(event) => onAdd(item, event.currentTarget)}
                     >
                       +
                     </button>

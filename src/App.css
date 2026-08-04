@@ -1618,3 +1618,21 @@ body {
     animation: none;
   }
 }
+
+
+/* Corrections splash et navigation */
+
+.murge-splash-bubble.bubble-one {
+  top: 100px;
+  right: 90px;
+}
+
+.murge-splash-bubble.bubble-two {
+  top: 110px;
+  right: 84px;
+}
+
+/* Safari accepte mieux "auto" que "instant" en secours visuel. */
+html {
+  scroll-behavior: auto;
+}

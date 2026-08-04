@@ -103,6 +103,14 @@ function App() {
     return () => window.clearTimeout(timer);
   }, []);
 
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "instant",
+    });
+  }, [selectedCategory, settingsPage, activeEventId]);
+
   const finishWelcome = () => {
     localStorage.setItem("murge-onboarding-v1", "done");
     setShowWelcome(false);
@@ -212,12 +220,12 @@ function App() {
   const showDrinkEffect = (drink, clickedElement) => {
     const container =
       clickedElement?.closest(
-        ".brand-card, .search-result-card, .favorite-card",
+        ".brand-card, .search-result-card, .favorite-card, .cart-item",
       ) || clickedElement;
 
     const source =
       container?.querySelector(
-        ".brand-image, .search-result-image, .favorite-image",
+        ".brand-image, .search-result-image, .favorite-image, .cart-item-image",
       ) || clickedElement;
 
     const rect = source?.getBoundingClientRect();

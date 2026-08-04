@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 function EventDrinkSelector({
   categories,
@@ -9,6 +9,14 @@ function EventDrinkSelector({
 }) {
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [selectedGroup, setSelectedGroup] = useState(null);
+
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "instant",
+    });
+  }, [selectedCategory, selectedGroup]);
 
   const selectableCategories = categories.filter(
     (category) =>

@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import BubbleButton from "../components/BubbleButton";
 
 function DrinkCategoryPage({
@@ -13,6 +13,14 @@ function DrinkCategoryPage({
 }) {
   const [openGroupId, setOpenGroupId] = useState(null);
   const [search, setSearch] = useState("");
+
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "instant",
+    });
+  }, [title]);
 
   const getQuantity = (variantId) => cart[variantId] || 0;
 
