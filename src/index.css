@@ -1,0 +1,30 @@
+:root {
+  font-family:
+    Inter, Arial, Helvetica, sans-serif;
+  color: #ffffff;
+  background: #121212;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+html {
+  background: #121212;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+  background:
+    radial-gradient(
+      circle at top,
+      rgb(245 158 11 / 10%),
+      transparent 32%
+    ),
+    #121212;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
