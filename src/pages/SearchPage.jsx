@@ -1,5 +1,4 @@
 import { useMemo, useRef, useState } from "react";
-import BubbleButton from "../components/BubbleButton";
 
 function SearchPage({
   drinks,
@@ -101,11 +100,13 @@ function SearchPage({
             const isFavorite = favorites.includes(drink.id);
 
             return (
-              <BubbleButton
+              <button
                 className="search-result-card"
                 type="button"
                 key={drink.id}
-                onClick={() => onAdd(drink)}
+                onClick={(event) =>
+                  onAdd(drink, event.currentTarget)
+                }
               >
                 <span className="search-result-image">
                   {drink.image}
@@ -140,7 +141,7 @@ function SearchPage({
                 <span className="search-result-action">
                   {quantity > 0 ? quantity : "+"}
                 </span>
-              </BubbleButton>
+              </button>
             );
           })}
         </div>

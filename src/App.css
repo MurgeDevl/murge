@@ -1395,3 +1395,16 @@ body {
   }
 }
 
+/* Correction mobile : version et copyright ne se chevauchent plus */
+
+.about-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+}
+
+.about-meta span {
+  display: block;
+  line-height: 1.35;
+}

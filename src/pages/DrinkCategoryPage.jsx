@@ -88,9 +88,12 @@ function DrinkCategoryPage({
                 className="brand-header"
                 type="button"
                 animate={directAdd}
-                onClick={() => {
+                onClick={(event) => {
                   if (directAdd && variants[0]) {
-                    onAdd(makeDrink(variants[0]));
+                    onAdd(
+                      makeDrink(variants[0]),
+                      event.currentTarget,
+                    );
                     return;
                   }
 
@@ -159,7 +162,9 @@ function DrinkCategoryPage({
                         <BubbleButton
                           className="variant-add"
                           type="button"
-                          onClick={() => onAdd(drink)}
+                          onClick={(event) =>
+                            onAdd(drink, event.currentTarget)
+                          }
                         >
                           <span>{variant.name}</span>
                           <span className="add-label">
@@ -180,7 +185,9 @@ function DrinkCategoryPage({
 
                             <button
                               type="button"
-                              onClick={() => onAdd(drink)}
+                              onClick={(event) =>
+                            onAdd(drink, event.currentTarget)
+                          }
                             >
                               +
                             </button>

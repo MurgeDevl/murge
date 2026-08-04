@@ -189,21 +189,16 @@ function App() {
     localStorage.setItem("murge-cart", JSON.stringify(nextCart));
   };
 
-  const showDrinkEffect = (drink) => {
-    const activeElement =
-      document.activeElement instanceof HTMLElement
-        ? document.activeElement
-        : null;
-
+  const showDrinkEffect = (drink, clickedElement) => {
     const container =
-      activeElement?.closest(
+      clickedElement?.closest(
         ".brand-card, .search-result-card, .favorite-card",
-      ) || activeElement;
+      ) || clickedElement;
 
     const source =
       container?.querySelector(
         ".brand-image, .search-result-image, .favorite-image",
-      ) || activeElement;
+      ) || clickedElement;
 
     const rect = source?.getBoundingClientRect();
 
@@ -386,7 +381,7 @@ function App() {
     createEffect({});
   };
 
-  const addDrink = (drink) => {
+  const addDrink = (drink, clickedElement = null) => {
     const currentItem = cart[drink.id];
 
     saveCart({
@@ -397,7 +392,7 @@ function App() {
       },
     });
 
-    showDrinkEffect(drink);
+    showDrinkEffect(drink, clickedElement);
   };
 
   const removeDrink = (drink) => {
@@ -653,7 +648,9 @@ function App() {
                   className="favorite-card"
                   type="button"
                   key={drink.id}
-                  onClick={() => addDrink(drink)}
+                  onClick={(event) =>
+                    addDrink(drink, event.currentTarget)
+                  }
                 >
                   <span className="favorite-image">
                     {drink.image}
