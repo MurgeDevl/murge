@@ -1,6 +1,5 @@
 function SettingsPage({
   onBack,
-  onOpenMyDrinks,
   onOpenAbout,
 }) {
   return (
@@ -14,16 +13,6 @@ function SettingsPage({
       </div>
 
       <div className="category-grid">
-        <button
-          className="category-card"
-          type="button"
-          onClick={onOpenMyDrinks}
-        >
-          <span className="category-emoji">👤</span>
-          <span className="category-name">Mes boissons</span>
-          <span className="category-arrow">›</span>
-        </button>
-
         <button
           className="category-card"
           type="button"

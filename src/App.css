@@ -1636,3 +1636,97 @@ body {
 html {
   scroll-behavior: auto;
 }
+
+
+/* Mes boissons devient une fonction principale */
+
+.my-drinks-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  margin: 24px 0;
+}
+
+.my-drinks-heading h2 {
+  margin: 0 0 8px;
+  font-size: 2rem;
+}
+
+.my-drinks-heading p {
+  margin: 0;
+  color: #a7a7a7;
+  line-height: 1.5;
+}
+
+.my-drinks-create-icon {
+  display: grid;
+  width: 48px;
+  height: 48px;
+  flex: 0 0 48px;
+  place-items: center;
+  border: 0;
+  border-radius: 15px;
+  background: #f59e0b;
+  color: #171717;
+  font-size: 1.8rem;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.my-drinks-form-actions {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 10px;
+  margin-top: 4px;
+}
+
+.my-drinks-form-actions .back-button {
+  margin: 0;
+}
+
+.my-drinks-cancel {
+  min-height: 56px;
+  padding: 0 18px;
+  border: 0;
+  border-radius: 16px;
+  background: #292929;
+  color: #ffffff;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.my-drinks-empty {
+  display: grid;
+  min-height: 310px;
+  place-items: center;
+  align-content: center;
+  gap: 14px;
+  padding: 28px 20px;
+  border: 1px solid #303030;
+  border-radius: 24px;
+  background: #202020;
+  text-align: center;
+}
+
+.my-drinks-empty > span {
+  font-size: 3.2rem;
+}
+
+.my-drinks-empty h3 {
+  margin: 0;
+}
+
+.my-drinks-empty .back-button {
+  margin-top: 6px;
+}
+
+@media (max-width: 380px) {
+  .my-drinks-form-actions {
+    grid-template-columns: 1fr;
+  }
+
+  .my-drinks-cancel {
+    order: 2;
+  }
+}

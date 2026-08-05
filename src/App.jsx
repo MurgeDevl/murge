@@ -21,6 +21,7 @@ import WelcomeScreen from "./components/WelcomeScreen";
 
 const categories = [
   { name: "Favoris", emoji: "⭐" },
+  { name: "Mes boissons", emoji: "🍺" },
   { name: "Événements", emoji: "🎉" },
   { name: "Bières", emoji: "🍺" },
   { name: "Vins", emoji: "🍷" },
@@ -180,7 +181,7 @@ function App() {
 
     return categories.filter((category) => {
       if (
-        ["Favoris", "Événements", "Paramètres"].includes(
+        ["Favoris", "Mes boissons", "Événements", "Paramètres"].includes(
           category.name,
         )
       ) {
@@ -708,11 +709,10 @@ function App() {
             </div>
           )}
         </section>
-      ) : selectedCategory === "Paramètres" &&
-        settingsPage === "Mes boissons" ? (
+      ) : selectedCategory === "Mes boissons" ? (
         <MyDrinksPage
           customDrinks={customDrinks}
-          onBack={() => setSettingsPage(null)}
+          onBack={() => setSelectedCategory(null)}
           onAddDrink={addCustomDrink}
           onDeleteDrink={deleteCustomDrink}
         />
@@ -727,9 +727,6 @@ function App() {
             setSettingsPage(null);
             setSelectedCategory(null);
           }}
-          onOpenMyDrinks={() =>
-            setSettingsPage("Mes boissons")
-          }
           onOpenAbout={() =>
             setSettingsPage("À propos")
           }
