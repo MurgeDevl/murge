@@ -1,5 +1,25 @@
 const cocktails = [
   {
+    id: "blanc",
+    name: "Blanc",
+    image: "🍹",
+    category: "Cocktails",
+    variants: [
+      { id: "blanc-coca", name: "Coca" },
+      { id: "blanc-orange", name: "Orange" },
+    ],
+  },
+  {
+    id: "woodberies",
+    name: "Woodberies",
+    image: "🍹",
+    category: "Cocktails",
+    variants: [
+      { id: "woodberies-sprite", name: "Sprite" },
+      { id: "woodberies-fanta", name: "Fanta" },
+    ],
+  },
+  {
     id: "spritz",
     name: "Spritz",
     image: "🍹",
@@ -61,6 +81,35 @@ const cocktails = [
     category: "Cocktails",
     variants: [
       { id: "sex-on-the-beach-classique", name: "Classique" },
+    ],
+  },
+  {
+    id: "pornstar-martini",
+    name: "Pornstar Martini",
+    image: "🍹",
+    category: "Cocktails",
+    variants: [
+      { id: "pornstar-martini-classique", name: "Classique" },
+    ],
+  },
+  {
+    id: "bucolique-gin",
+    name: "Bucolique Gin",
+    image: "🍹",
+    category: "Cocktails",
+    variants: [
+      { id: "bucolique-gin-gin-tonic", name: "Gin Tonic" },
+      { id: "bucolique-gin-nectare-rouge", name: "Nectare Rouge" },
+      { id: "bucolique-gin-sun-sleep", name: "Sun Sleep" },
+    ],
+  },
+  {
+    id: "rhum-coca",
+    name: "Rhum Coca",
+    image: "🍹",
+    category: "Cocktails",
+    variants: [
+      { id: "rhum-coca-classique", name: "Classique" },
     ],
   },
 ];

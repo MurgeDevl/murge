@@ -1,12 +1,12 @@
 const softs = [
   {
-    id: "coca",
+    id: "coca-cola",
     name: "Coca-Cola",
     image: "🥤",
     category: "Softs",
     variants: [
-      { id: "coca-classique", name: "Classique" },
-      { id: "coca-zero", name: "Zero" },
+      { id: "coca-cola-normale", name: "Normale" },
+      { id: "coca-cola-zero", name: "Zero" },
     ],
   },
   {
@@ -29,13 +29,14 @@ const softs = [
     ],
   },
   {
-    id: "icetea",
+    id: "ice-tea",
     name: "Ice Tea",
     image: "🥤",
     category: "Softs",
     variants: [
-      { id: "icetea-peche", name: "Pêche" },
-      { id: "icetea-citron", name: "Citron" },
+      { id: "ice-tea-petillant", name: "Pétillant" },
+      { id: "ice-tea-peche", name: "Pêche" },
+      { id: "ice-tea-citron", name: "Citron" },
     ],
   },
   {
@@ -63,23 +64,23 @@ const softs = [
     image: "🥤",
     category: "Softs",
     variants: [
-      { id: "oasis-tropical", name: "Tropical" },
+      { id: "oasis-classique", name: "Classique" },
     ],
   },
   {
-    id: "redbull",
+    id: "red-bull",
     name: "Red Bull",
     image: "🥤",
     category: "Softs",
     variants: [
-      { id: "redbull-classique", name: "Classique" },
-      { id: "redbull-sugarfree", name: "Sugarfree" },
+      { id: "red-bull-classique", name: "Classique" },
+      { id: "red-bull-sugarfree", name: "Sugarfree" },
     ],
   },
   {
     id: "eau",
     name: "Eau",
-    image: "💧",
+    image: "🥤",
     category: "Softs",
     variants: [
       { id: "eau-plate", name: "Plate" },
