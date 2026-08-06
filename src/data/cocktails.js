@@ -1,5 +1,14 @@
 const cocktails = [
   {
+    id: "get-27",
+    name: "Get 27",
+    image: "🍹",
+    category: "Cocktails",
+    variants: [
+      { id: "get-27-classique", name: "Classique" },
+    ],
+  },
+  {
     id: "blanc",
     name: "Blanc",
     image: "🍹",
