@@ -24,11 +24,11 @@ const categories = [
   { name: "Mes boissons", emoji: "🍺" },
   { name: "Événements", emoji: "🎉" },
   { name: "Bières", emoji: "🍺" },
+  { name: "Softs", emoji: "🥤" },
+  { name: "Cocktails", emoji: "🍹" },
   { name: "Vins", emoji: "🍷" },
   { name: "Bulles", emoji: "🥂" },
-  { name: "Cocktails", emoji: "🍹" },
   { name: "Spiritueux", emoji: "🥃" },
-  { name: "Softs", emoji: "🥤" },
   { name: "Chauds", emoji: "☕" },
   { name: "Paramètres", emoji: "⚙️" },
 ];
